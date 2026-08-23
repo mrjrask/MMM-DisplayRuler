@@ -50,6 +50,15 @@ Module.register("MMM-DisplayRuler", {
 		this.canvas = null;
 		this.resizeTimer = null;
 		this.boundResize = this.onResize.bind(this);
+
+		// A zero/negative/non-numeric minorTick would make the tick-drawing
+		// loops below increment by nothing (or backwards), hanging the
+		// browser tab. Fall back to the default rather than let a typo in
+		// config.js freeze the mirror.
+		if (!(this.config.minorTick > 0)) {
+			Log.warn(`${this.name}: minorTick must be a positive number, falling back to default (${this.defaults.minorTick})`);
+			this.config.minorTick = this.defaults.minorTick;
+		}
 	},
 
 	getStyles () {
@@ -59,6 +68,7 @@ Module.register("MMM-DisplayRuler", {
 	getDom () {
 		const wrapper = document.createElement("div");
 		wrapper.className = "MMM-DisplayRuler-wrapper";
+		wrapper.setAttribute("aria-hidden", "true");
 
 		const canvas = document.createElement("canvas");
 		canvas.className = "MMM-DisplayRuler-canvas";
@@ -83,6 +93,7 @@ Module.register("MMM-DisplayRuler", {
 	},
 
 	suspend () {
+		clearTimeout(this.resizeTimer);
 		if (this.config.updateOnResize) {
 			window.removeEventListener("resize", this.boundResize);
 		}

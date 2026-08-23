@@ -13,8 +13,6 @@ modules, debugging CSS, or just curious). It automatically re-measures
 itself if the browser window or display resolution changes — no need to
 hardcode `1920x1080` anywhere.
 
-![MMM-DisplayRuler screenshot placeholder](https://via.placeholder.com/960x540?text=MMM-DisplayRuler)
-
 ## Features
 
 - Draws real pixel rulers sized to the **actual detected viewport**, not a
@@ -81,7 +79,7 @@ other modules render on top of the rulers.
 | Option                | Type      | Default                          | Description |
 |------------------------|-----------|-----------------------------------|--------------|
 | `rulerThickness`       | `number`  | `70`                              | Width/height of each ruler bar, in pixels. |
-| `minorTick`            | `number`  | `10`                              | Spacing (px) between the shortest, unlabeled tick marks. |
+| `minorTick`            | `number`  | `10`                              | Spacing (px) between the shortest, unlabeled tick marks. Must be a positive number — an invalid value falls back to the default and logs a warning. |
 | `mediumTick`           | `number`  | `50`                              | Spacing (px) between medium-length, unlabeled tick marks. |
 | `majorTick`            | `number`  | `100`                             | Spacing (px) between long tick marks that get a pixel-value label. |
 | `colorBody`            | `string`  | `"#e8d3a2"`                       | Base wood-tone color of the ruler bars. |
