@@ -1,0 +1,30 @@
+/*
+ * MMM-DisplayRuler.css
+ *
+ * The module is meant to be used in the "fullscreen_above" (or
+ * "fullscreen_below") region, which MagicMirror already sizes to the
+ * full viewport. These rules are a safety net so the overlay still
+ * behaves correctly even if it's ever placed in a different region.
+ */
+
+.MMM-DisplayRuler-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	/* The ruler is purely informational — never intercept touches/clicks */
+	pointer-events: none;
+
+	/* Sits above other modules but doesn't need its own compositor layer trickery */
+	z-index: 999;
+}
+
+.MMM-DisplayRuler-canvas {
+	display: block;
+	pointer-events: none;
+}

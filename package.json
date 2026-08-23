@@ -1,0 +1,23 @@
+{
+  "name": "MMM-DisplayRuler",
+  "version": "1.0.0",
+  "description": "MagicMirror\u00b2 module that overlays elementary-school-style rulers, accurately marked in pixels, across the entire display.",
+  "main": "MMM-DisplayRuler.js",
+  "scripts": {
+    "test": "echo \"no tests\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjrask/MMM-DisplayRuler.git"
+  },
+  "keywords": [
+    "magicmirror",
+    "magicmirror2",
+    "mmm",
+    "ruler",
+    "pixels",
+    "display"
+  ],
+  "author": "mrjrask",
+  "license": "MIT"
+}
